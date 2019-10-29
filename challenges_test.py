@@ -1,5 +1,5 @@
 import unittest
-from chase_the_pair import close_pair
+from challenges import close_pair
 
 
 class TestChallenges(unittest.TestCase):
