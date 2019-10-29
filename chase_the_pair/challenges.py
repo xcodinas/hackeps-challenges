@@ -15,21 +15,19 @@ def close_pair(a, b, to_chase):
     return [a[pairs[0].get('index')], b[pairs[0].get('index')]]
 
 
-def generate_sets(size, number=2):
-    return [[
-            random.randint(1, 999) for x in range(0, size)] for _ in range(
-            0, number)]
+def parse_sets(filename):
+    with open(filename) as f:
+        data = f.read()
+        return ([int(a) for a in data.split('\t')[0][2:-1].split(',')],
+            [int(b) for b in data.split('\t')[1][2:-2].split(',')])
+
 
 if __name__ == '__main__':
-    try:
-        set_size = int(input(
-                "Insert the size of the sets that will be generated:\n"))
-        start_time = time.time()
-        a, b = generate_sets(set_size)
-        chase_number = random.randint(1, 999)
-        print("------------RESULTS SECTION----------")
-        print("Number to chase: %s" % chase_number)
-        print("Result: %s" % close_pair(a, b, chase_number))
-        print("--- %s seconds ---" % (time.time() - start_time))
-    except ValueError:
-        print("Size must be an Integer")
+    a, b = parse_sets('logs.txt')
+    chase_number = random.randint(1, max(a))
+    start_time = time.process_time()
+    print("------------RESULTS SECTION----------")
+    print("Number to chase: %s" % chase_number)
+    print("Result: %s" % close_pair(a, b, chase_number))
+    print("--- %s seconds ---" % (time.process_time() - start_time))
+    test = time.process_time() - start_time

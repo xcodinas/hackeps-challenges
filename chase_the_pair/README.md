@@ -1,4 +1,5 @@
 ·Challenge: HackEPS - ChaseThePair
 ·Algorithm cost: <O(n)>
-·TeamName: <TeamName>
+·TeamName:the pink c0re
 ·TimeAchieved: <Time> <Units>
+
